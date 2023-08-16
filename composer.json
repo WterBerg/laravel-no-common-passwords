@@ -1,0 +1,47 @@
+{
+    "name": "wterberg/laravel-no-common-passwords",
+    "description": "Provides validation rules to check passwords against a list of commonly used passwords.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "authors": [
+        {
+            "name": "Willem ter Berg",
+            "email": "wrpterberg@gmail.com",
+            "homepage": "https://wterberg.nl"
+        }
+    ],
+    "scripts": {
+        "post-update-cmd": [
+            "vendor/bin/xs-config --type=laravel-package --force=false",
+            "vendor/bin/xs-dependencies"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "WterBerg\\Laravel\\NoCommonPasswords\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "illuminate/contracts": "^10.0",
+        "wikimedia/common-passwords": "^0.5"
+    },
+    "require-dev": {
+        "nunomaduro/larastan": "^2.6",
+        "orchestra/testbench": "^8.8",
+        "wterberg/phpstan-laravel": "^1.0",
+        "xpertselect/tools": "^1.0"
+    }
+}
