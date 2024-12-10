@@ -4,6 +4,7 @@ name: "Analysis"
 
 permissions:
   checks: write
+  pull-requests: write
 
 on:
   push:
