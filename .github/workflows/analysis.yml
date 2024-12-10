@@ -2,6 +2,9 @@
 
 name: "Analysis"
 
+permissions:
+  checks: write
+
 on:
   push:
     branches:
