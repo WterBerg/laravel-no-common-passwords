@@ -9,10 +9,15 @@ declare(strict_types=1);
  * bundled with this source code in the LICENSE.md file.
  */
 
+use Composer\InstalledVersions;
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+use XpertSelect\Tools\ProjectType;
+
 include 'vendor/autoload.php';
 
-$package = Composer\InstalledVersions::getRootPackage()['name'];
-$rules   = include \XpertSelect\Tools\ProjectType::LaravelPackage->phpCsFixerRuleFile();
+$package = InstalledVersions::getRootPackage()['name'];
+$rules   = include ProjectType::LaravelPackage->phpCsFixerRuleFile();
 
 $rules['header_comment']['header'] = trim('
 This file is part of the ' . $package . ' package.
@@ -21,13 +26,13 @@ This source file is subject to the license that is
 bundled with this source code in the LICENSE.md file.
 ');
 
-$finder = PhpCsFixer\Finder::create()
+$finder = Finder::create()
     ->in([__DIR__])
     ->append([__FILE__])
     ->ignoreDotFiles(false)
     ->ignoreVCSIgnored(true);
 
-return (new PhpCsFixer\Config('XpertSelect/Laravel'))
+return (new Config('XpertSelect/Laravel'))
     ->setIndent('    ')
     ->setLineEnding("\n")
     ->setRules($rules)

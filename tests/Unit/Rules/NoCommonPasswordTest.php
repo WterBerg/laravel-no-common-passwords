@@ -24,7 +24,11 @@ final class NoCommonPasswordTest extends TestCase
 {
     public static function commonPasswordsDatasets(): array
     {
-        return [['123456'], ['qwerty'], ['password']];
+        return [
+            ['123456'],
+            ['qwerty'],
+            ['password'],
+        ];
     }
 
     /**
